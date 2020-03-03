@@ -1,0 +1,21 @@
+{
+  "Unit Tests": {
+    "coverage": {
+      "/Users/huxley/1module/Enigma/lib/enigma.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1583186294
+  }
+}
