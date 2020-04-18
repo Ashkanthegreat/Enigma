@@ -15,8 +15,10 @@ class EnigmaTest < Minitest::Test
   def test_it_has_attributes
     charset = ("a".."z").to_a << " "
 
-    assert_equal charset, @enigma.charset
+    assert_equal charset, @enigma.alphabet
+    Date.stubs(:today).returns('05091979')
+    assert_equal '05091979', @enigma.date
   end
 
-  
+
 end

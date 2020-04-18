@@ -1,10 +1,11 @@
 require 'date'
 
 class Enigma
-  attr_reader :charset
+  attr_reader :alphabet, :date
 
   def initialize
-    @charset = ("a".."z").to_a << " "
+    @alphabet = ("a".."z").to_a << " "
+    @date = Date.today.strftime("%d%m%y")
   end
 
 end
