@@ -18,4 +18,14 @@ class KeyTest < Minitest::Test
     @key.stubs(:rand).returns('7652')
     assert_equal '07652', @key.random_keys
   end
+
+  def test_key_hash
+    expected = {
+      :A => '05',
+      :B => '51',
+      :C => '14',
+      :D => '43'
+    }
+    assert_equal expected, @key.key_set
+  end
 end
