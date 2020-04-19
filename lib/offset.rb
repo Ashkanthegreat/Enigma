@@ -1,2 +1,7 @@
+require_relative 'randomizer'
+
 class Offset
-end 
+  include Randomizer
+  
+
+end
