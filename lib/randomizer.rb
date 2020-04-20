@@ -1,4 +1,4 @@
-
+require 'date'
 
 module Randomizer
 
@@ -8,7 +8,7 @@ module Randomizer
   end
 
   def todays_date
-    Date.today.strftime("%d%m%Y")
+    Date.today.strftime("%d%m%y")
   end
 
   def character_set
