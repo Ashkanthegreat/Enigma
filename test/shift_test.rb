@@ -17,4 +17,9 @@ class ShiftTest < Minitest::Test
 
     assert_equal expected, @shift.combine_shifts
   end
+
+  def test_shift_can_get_direction
+    expected = {:A=>-13, :B=>-55, :C=>-18, :D=>-44}
+    assert_equal expected, @shift.shift_direction(-1)
+  end
 end

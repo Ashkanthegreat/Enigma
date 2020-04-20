@@ -14,5 +14,9 @@ class Shift
     @key.numbers.key_set.merge(@offset.date.generate_offset) { |key, key_set_value, generate_offset_value| key_set_value.to_i + generate_offset_value.to_i }
   end
 
+  def shift_direction(direction)
+    combine_shifts.transform_values { |value| value * direction } 
+  end
+
 
 end
