@@ -19,7 +19,7 @@ class KeyTest < Minitest::Test
     assert_equal '07652', @key.random_keys
   end
 
-  def test_key_hash
+  def test_key_set
     expected = {
       :A => '05',
       :B => '51',
