@@ -6,7 +6,7 @@ Module
   Random stuff and generated stuff
       will create the key generator
       will generate todays date
-      will hold character set 
+      will hold character set
 
 Enigma
   encrypt method
