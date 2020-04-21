@@ -29,4 +29,8 @@ class ShiftTest < Minitest::Test
     assert_equal expected2, @shift.shift_character_set(11, shifts)
   end
 
+  def test_it_can_format_message
+    assert_equal ["h", "e", "l", "l", "o"], @shift.formatted_message('hello')
+  end
+
 end
