@@ -9,7 +9,7 @@ class Offset
   end
 
   def date_squared
-    (@date.to_i**2).to_s
+    (@date.to_i ** 2).to_s
   end
 
   def offset_values
