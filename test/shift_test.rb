@@ -34,11 +34,9 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_can_transform_message
-    plain = 'HELLO world'
-    cipher = 'ufcbaanedmv'
-    shifts = {:A=>13, :B=>55, :C=>18, :D=>44}
+    final_shift = {:A=>13, :B=>55, :C=>18, :D=>44}
 
-    assert_equal cipher, @shift.transform_message(plain, shifts)
+    assert_equal "ufcbaanedmv", @shift.transform_message("HELLO world", final_shift)
 
   end
 
