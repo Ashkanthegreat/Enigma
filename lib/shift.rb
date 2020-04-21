@@ -10,7 +10,7 @@ class Shift
     @offset = Offset.new(offset)
   end
 
-  def combine_shifts_with_direction(direction)
+  def combine_shifts_with_direction(key = random_keys, date = todays_date, direction)
     @key.numbers.key_set.merge(@offset.date.generate_offset) { |key, key_set_value, generate_offset_value| key_set_value.to_i + generate_offset_value.to_i }.transform_values{|value| value * direction}
   end
 
