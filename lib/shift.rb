@@ -5,30 +5,28 @@ require_relative 'offset'
 class Shift
   include Randomizer
 
-  def initialize(key, offset)
+  def initialize(key, offset, char_set = character_set)
     @key = Key.new(key)
     @offset = Offset.new(offset)
+    @char_set = char_set
   end
 
-  def combine_shifts
-    @key.numbers.key_set.merge(@offset.date.generate_offset) { |key, key_set_value, generate_offset_value| key_set_value.to_i + generate_offset_value.to_i }
+  def combine_shifts_with_direction(direction)
+    @key.numbers.key_set.merge(@offset.date.generate_offset) { |key, key_set_value, generate_offset_value| key_set_value.to_i + generate_offset_value.to_i }.transform_values{|value| value * direction}
   end
 
-  def shift_forward
-    combine_shifts.transform_values { |value| value * 1 }
+  def shift_character_set(index, shifts)
+    return @char_set.rotate(shifts[:A]) if index % 4 == 0
+    return @char_set.rotate(shifts[:B]) if index % 4 == 1
+    return @char_set.rotate(shifts[:C]) if index % 4 == 2
+    return @char_set.rotate(shifts[:D]) if index % 4 == 3
   end
 
-  def shift_backward
-    combine_shifts.transform_values { |value| value * -1 }
+  def formatted_message(message)
+    message.downcase.chars
   end
 
 
-  def index_message(message)
-    message.each_char.map{|letter| letter.ord - ?a.ord + 1}
-  end
 
-  def cypher_forward(message)
-    
-  end
 
 end

@@ -13,29 +13,20 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_can_combine_shifts
-    expected = {:A=>13, :B=>55, :C=>18, :D=>44}
+    expected1 = {:A=>13, :B=>55, :C=>18, :D=>44}
+    expected2 = {:A=>-13, :B=>-55, :C=>-18, :D=>-44}
 
-    assert_equal expected, @shift.combine_shifts
+    assert_equal expected1, @shift.combine_shifts_with_direction(1)
+    assert_equal expected2, @shift.combine_shifts_with_direction(-1)
   end
 
-  def test_can_shift_forward
-    expected = {:A=>13, :B=>55, :C=>18, :D=>44}
-    assert_equal expected, @shift.shift_forward
+  def test_it_can_shift_character_set
+    shifts = {:A=>13, :B=>55, :C=>18, :D=>44}
+    expected1 = ["n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"]
+    expected2 = ["r", "s", "t", "u", "v", "w", "x", "y", "z", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q"]
+
+    assert_equal expected1, @shift.shift_character_set(4, shifts)
+    assert_equal expected2, @shift.shift_character_set(11, shifts)
   end
 
-  def test_can_shift_backward
-    expected = {:A=>-13, :B=>-55, :C=>-18, :D=>-44}
-    assert_equal expected, @shift.shift_backward
-  end
-
-  def test_it_can_index_message
-    expected = [8, 5, 12, 12, 15]
-
-    assert_equal expected, @shift.index_message("hello")
-  end
-
-  def test_cypher_forward
-    assert_equal [], @shift.cypher_forward("hello")
-    
-  end
 end
