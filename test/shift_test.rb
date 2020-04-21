@@ -18,8 +18,24 @@ class ShiftTest < Minitest::Test
     assert_equal expected, @shift.combine_shifts
   end
 
-  def test_shift_can_get_direction
+  def test_can_shift_forward
+    expected = {:A=>13, :B=>55, :C=>18, :D=>44}
+    assert_equal expected, @shift.shift_forward
+  end
+
+  def test_can_shift_backward
     expected = {:A=>-13, :B=>-55, :C=>-18, :D=>-44}
-    assert_equal expected, @shift.shift_direction(-1)
+    assert_equal expected, @shift.shift_backward
+  end
+
+  def test_it_can_index_message
+    expected = [8, 5, 12, 12, 15]
+
+    assert_equal expected, @shift.index_message("hello")
+  end
+
+  def test_cypher_forward
+    assert_equal [], @shift.cypher_forward("hello")
+    
   end
 end
