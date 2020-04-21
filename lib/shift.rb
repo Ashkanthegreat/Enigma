@@ -23,8 +23,19 @@ class Shift
   end
 
   def formatted_message(message)
-    message.downcase.chars
+    message.downcase
   end
 
+  def transform_message(message, shifts)
+    transformed_message = ''
+    formatted_message(message).each_char.with_index do |char, index|
+      if @char_set.include?(char)
+        transformed_message += shift_character_set(index, shifts)[@char_set.index(char)]
+      else
+      transformed_message += char
+      end
+    end
+    transformed_message
+  end
 
 end

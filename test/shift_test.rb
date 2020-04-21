@@ -30,7 +30,16 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_can_format_message
-    assert_equal ["h", "e", "l", "l", "o"], @shift.formatted_message('hello')
+    assert_equal 'hello', @shift.formatted_message('HELLO')
+  end
+
+  def test_it_can_transform_message
+    plain = 'HELLO world'
+    cipher = 'ufcbaanedmv'
+    shifts = {:A=>13, :B=>55, :C=>18, :D=>44}
+
+    assert_equal cipher, @shift.transform_message(plain, shifts)
+
   end
 
 end
